@@ -23,17 +23,8 @@ public class MessageService {
         return messageRepository.getMessage(id);
     }
 
-    public Message save(Message m){
-        if(m.getId()== null){
-            return messageRepository.save(m);
-        }else{
-            Optional<Message> maux= messageRepository.getMessage(m.getId());
-            if (maux.isEmpty()){
-                return messageRepository.save(m);
-            }else{
-                return m;
-            }
-        }
+    public Message insertmeMessage(Message message){
+        return messageRepository.save(message);
     }
  
     

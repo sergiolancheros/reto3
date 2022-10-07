@@ -22,18 +22,8 @@ public class CategoryService {
         return categoryRepository.getCategory(id);
     }
 
-    public Category save(Category c){
-        if (c.getId()== null){
-            return categoryRepository.save(c);
-        }else{
-            Optional<Category> caux= categoryRepository.getCategory(c.getId());
-            if (caux.isEmpty()){
-                return categoryRepository.save(c);
-            } else{
-                return c;
-            }
-        }
-
+    public Category insertCategory(Category category){
+        return categoryRepository.save(category);
     }
 
 

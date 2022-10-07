@@ -22,17 +22,8 @@ public class FarmService {
         return farmRepository.getFinca(id);
     } 
 
-    public Farm save(Farm f){
-        if(f.getId()==null){
-            return farmRepository.save(f);
-        }else{
-            Optional<Farm> faux=farmRepository.getFinca(f.getId());
-            if (faux.isEmpty()){
-                return farmRepository.save(f);
-            }else{
-                return f;
-            }
-        }
+    public Farm insertfFarm(Farm farm){
+        return farmRepository.save(farm);
     }
         
 }

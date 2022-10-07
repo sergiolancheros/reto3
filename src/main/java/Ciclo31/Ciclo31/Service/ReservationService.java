@@ -22,16 +22,7 @@ public class ReservationService {
         return reservationRepository.getReservation(id);
     }
 
-    public Reservation save(Reservation r){
-        if(r.getId()==null){
-            return reservationRepository.save(r);
-        }else{
-            Optional<Reservation> raux=reservationRepository.getReservation(r.getId());
-            if (raux.isEmpty()){
-                return reservationRepository.save(r);
-            }else{
-                return r;
-            }
-        }
+    public Reservation insertrReservation(Reservation reservation){
+        return reservationRepository.save(reservation);
     }
 }

@@ -23,17 +23,8 @@ public class ClientService {
         return clientRepository.getCliente(id);
     }
 
-    public Client save (Client m){
-        if(m.getIdClient() ==null){
-            return clientRepository.save(m);
-        }else{
-            Optional<Client> maux= clientRepository.getCliente(m.getIdClient());
-            if (maux.isEmpty()){
-                return clientRepository.save(m);
-            }else{
-                return m;
-            }
-        }
+    public Client insertClient(Client client){
+        return clientRepository.save(client);
     }
 
     
