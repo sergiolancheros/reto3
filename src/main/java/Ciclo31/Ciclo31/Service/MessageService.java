@@ -23,7 +23,7 @@ public class MessageService {
         return messageRepository.getMessage(id);
     }
 
-    public Message insertmeMessage(Message message){
+    public Message insertMessage(Message message){
         return messageRepository.save(message);
     }
  

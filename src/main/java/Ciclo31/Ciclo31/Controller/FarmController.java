@@ -38,7 +38,7 @@ public class FarmController {
 
     @PostMapping("/save")
     public ResponseEntity insertFarm(@RequestBody Farm farm){
-        farmService.insertfFarm(farm);
+        farmService.insertFarm(farm);
         return ResponseEntity.status(201).build();
     }
     

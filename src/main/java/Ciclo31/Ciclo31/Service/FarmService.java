@@ -22,7 +22,7 @@ public class FarmService {
         return farmRepository.getFinca(id);
     } 
 
-    public Farm insertfFarm(Farm farm){
+    public Farm insertFarm(Farm farm){
         return farmRepository.save(farm);
     }
         

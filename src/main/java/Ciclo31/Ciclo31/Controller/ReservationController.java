@@ -40,7 +40,7 @@ public class ReservationController {
 
     @PostMapping("/save")
     public ResponseEntity insertReservation(@RequestBody Reservation reservation){
-        reservationService.insertrReservation(reservation);
+        reservationService.insertReservation(reservation);
         return ResponseEntity.status(201).build();
     }
     

@@ -38,7 +38,7 @@ public class MessageController {
 
     @PostMapping("/save")
     public ResponseEntity insertMessage(@RequestBody Message message){
-        messageService.insertmeMessage(message);
+        messageService.insertMessage(message);
         return ResponseEntity.status(201).build();
     }
 

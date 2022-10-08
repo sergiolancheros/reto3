@@ -18,25 +18,25 @@ public class Message implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idMessage;
     private String messageText;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
-    @JsonIgnoreProperties("messages")
-    private Client client;
-
-    @ManyToOne
     @JoinColumn(name = "farm_id")
-    @JsonIgnoreProperties("messages")
+    @JsonIgnoreProperties({"reservations","messages"})
     private Farm farm;
 
-    public Integer getId() {
-        return id;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    @JsonIgnoreProperties({"reservations","messages"})
+    private Client client;
+
+    public Integer getIdMessage() {
+        return idMessage;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdMessage(Integer idMessage) {
+        this.idMessage = idMessage;
     }
 
     public String getMessageText() {
@@ -64,8 +64,5 @@ public class Message implements Serializable {
     }
 
     
-
-    
-
     
 }

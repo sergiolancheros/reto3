@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -19,26 +20,30 @@ public class Reservation implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idReservation;
     private Date startDate;
     private Date devolutionDate;
-
-    @ManyToOne
-    @JoinColumn(name = "client_id")
-    @JsonIgnoreProperties("reservations")
-    private Client client;
+    private String status = "created";
 
     @ManyToOne
     @JoinColumn(name = "farm_id")
     @JsonIgnoreProperties("reservations")
     private Farm farm;
 
-    public Integer getId() {
-        return id;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    @JsonIgnoreProperties({"reservations","messages"})
+    private Client client;
+
+    private static final String None = null;
+    private String score = None;
+
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
 
     public Date getStartDate() {
@@ -57,12 +62,12 @@ public class Reservation implements Serializable {
         this.devolutionDate = devolutionDate;
     }
 
-    public Client getClient() {
-        return client;
+    public String getStatus() {
+        return status;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Farm getFarm() {
@@ -73,6 +78,28 @@ public class Reservation implements Serializable {
         this.farm = farm;
     }
 
-   
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public static String getNone() {
+        return None;
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+
+
+ 
     
 }
