@@ -11,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -27,7 +26,7 @@ public class Reservation implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "farm_id")
-    @JsonIgnoreProperties("reservations")
+    @JsonIgnoreProperties({"reservations"})
     private Farm farm;
 
     @ManyToOne
@@ -91,7 +90,7 @@ public class Reservation implements Serializable {
     }
 
     public String getScore() {
-        return score;
+       return score;
     }
 
     public void setScore(String score) {
