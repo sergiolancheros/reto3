@@ -45,12 +45,14 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{id}")
-    public boolean deleteCategory(@PathVariable("id") int id){
-        return categoryService.deleteCategory(id);
+    public ResponseEntity deleteCategory(@PathVariable("id") int id){
+        categoryService.deleteCategory(id);
+        return ResponseEntity.status(204).build();
     }
 
     @PutMapping("/update")
-    public Category updateCategory (@RequestBody Category c){
-        return categoryService.updateCategory(c);
+    public ResponseEntity updateCategory(@RequestBody Category category){
+        categoryService.updateCategory(category);
+        return ResponseEntity.status(201).build(); 
     }
 }

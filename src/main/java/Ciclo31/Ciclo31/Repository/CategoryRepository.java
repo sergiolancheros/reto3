@@ -31,8 +31,8 @@ public class CategoryRepository {
         return categoryCrudRepository.findById(idCategory);
     }
 
-    public void delete(Category c){
-        categoryCrudRepository.delete(c);
+    public void deleteById(int idCategory){
+        categoryCrudRepository.deleteById(idCategory);
     }
 
     

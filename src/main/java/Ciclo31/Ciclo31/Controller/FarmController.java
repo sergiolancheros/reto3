@@ -45,14 +45,17 @@ public class FarmController {
     }
     
     @DeleteMapping("/{id}")
-    public boolean deleteFarm(@PathVariable("id") int id){
-        return farmService.deleteFarm(id);
+    public ResponseEntity deleteFarm(@PathVariable("id") int id){
+        farmService.deleteFarm(id);
+        return ResponseEntity.status(204).build();
     }
 
     @PutMapping("/update")
-    public Farm updateFarm (@RequestBody Farm f){
-        return farmService.updateFarm (f);
-    }
+    public ResponseEntity updateFarm(@RequestBody Farm farm){
+        farmService.updateFarm(farm);
+        return ResponseEntity.status(201).build(); 
+}
+
 }
 
 

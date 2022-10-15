@@ -26,14 +26,9 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
-    public boolean deleteCategory(int id){
-        Optional<Category> c=categoryRepository.getById(id);
-        if(c.isPresent()){
-            categoryRepository.delete(c.get());
-            return true;
-        }else{
-            return false;
-        }      
+    public void deleteCategory(int id){
+        categoryRepository.deleteById(id);
+         
     }
 
     public Category updateCategory (Category c){

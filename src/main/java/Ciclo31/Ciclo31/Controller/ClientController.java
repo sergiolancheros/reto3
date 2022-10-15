@@ -45,13 +45,15 @@ public class ClientController {
     }
 
     @DeleteMapping("/{id}")
-    public boolean deleteClient(@PathVariable("id") int id){
-        return clientService.deleteClient(id);
+    public ResponseEntity deleteClient(@PathVariable("id") int id){
+        clientService.deleteClient(id);
+        return ResponseEntity.status(204).build();
     }
 
     @PutMapping("/update")
-    public Client updateClient (@RequestBody Client c){
-        return clientService.updateClient(c);
+    public ResponseEntity updateClient(@RequestBody Client client){
+        clientService.updateClient(client);
+        return ResponseEntity.status(201).build(); 
     }
     
 }
