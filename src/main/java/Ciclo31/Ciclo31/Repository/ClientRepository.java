@@ -25,5 +25,14 @@ public class ClientRepository {
     public Client save (Client m){
         return clientCrudRepository.save(m);
     }
+
+    public Optional<Client> getById(int id) {
+        return clientCrudRepository.findById(id);
+    }
+
+    public void delete(Client c){
+        clientCrudRepository.delete(c);
+    }
+
     
 }

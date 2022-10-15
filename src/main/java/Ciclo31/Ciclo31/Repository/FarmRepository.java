@@ -25,5 +25,13 @@ public Optional<Farm> getFinca(int id){
 public Farm save (Farm f){
     return farmCrudRepository.save(f);
 }
-    
+
+public void delete(Farm f){
+    farmCrudRepository.delete(f);
+}
+
+public Optional<Farm> getById(int id) {
+    return farmCrudRepository.findById(id);
+}
+
 }

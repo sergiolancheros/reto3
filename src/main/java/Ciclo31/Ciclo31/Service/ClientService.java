@@ -27,5 +27,34 @@ public class ClientService {
         return clientRepository.save(client);
     }
 
+    public boolean deleteClient(int id){
+        Optional<Client> c=clientRepository.getById(id);
+        if(c.isPresent()){
+            clientRepository.delete(c.get());
+            return true;
+        }else{
+            return false;
+        }      
+    }
+
+    public Client update(Client c){
+        if(c.getIdClient()!= null){
+            Optional<Client> newc = clientRepository.getById(c.getIdClient());
+            if(newc.isEmpty()) return c;
+
+            else{
+                Client cdb = newc.get();
+
+                if (c.getAge()!=null) cdb.setAge(c.getAge());
+                if (c.getEmail()!=null) cdb.setEmail(c.getEmail());
+                if (c.getName()!=null) cdb.setName(c.getName());
+                if (c.getPassword()!=null) cdb.setPassword(c.getPassword());
+                return clientRepository.save(cdb);
+            }
+        }    
+        
+        return c;
+    }
+
     
 }
