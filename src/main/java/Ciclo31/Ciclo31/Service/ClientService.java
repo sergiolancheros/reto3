@@ -40,9 +40,7 @@ public class ClientService {
     public Client update(Client c){
         if(c.getIdClient()!= null){
             Optional<Client> newc = clientRepository.getById(c.getIdClient());
-            if(newc.isEmpty()) return c;
-
-            else{
+            if(newc.isPresent()){
                 Client cdb = newc.get();
 
                 if (c.getAge()!=null) cdb.setAge(c.getAge());

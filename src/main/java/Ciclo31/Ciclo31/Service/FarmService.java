@@ -39,17 +39,15 @@ public class FarmService {
     public Farm update(Farm f){
         if(f.getId()!= null){
             Optional<Farm> newf = farmRepository.getById(f.getId());
-            if(newf.isEmpty()) return f;
-
-            else{
+            if(newf.isPresent()){
                 Farm fdb = newf.get();
 
-               if (f.getAddress()!= null) fdb.setAddress(f.getAddress());
-               if(f.getExtension()!=null) fdb.setExtension(f.getExtension());
-               if (f.getCategory()!=null) fdb.setCategory(f.getCategory());
-               if(f.getName()!=null) fdb.setName(f.getName());
-               if (f.getDescription()!=null) fdb.setDescription(f.getDescription());
-               return farmRepository.save(fdb);
+                if (f.getAddress()!= null) fdb.setAddress(f.getAddress());
+                if(f.getExtension()!=null) fdb.setExtension(f.getExtension());
+                if (f.getCategory()!=null) fdb.setCategory(f.getCategory());
+                if(f.getName()!=null) fdb.setName(f.getName());
+                if (f.getDescription()!=null) fdb.setDescription(f.getDescription());
+                return farmRepository.save(fdb);
             }
         }    
         
