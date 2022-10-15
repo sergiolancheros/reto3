@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import Ciclo31.Ciclo31.Dummies.CountClient;
+import Ciclo31.Ciclo31.Dummies.StatusAmount;
 import Ciclo31.Ciclo31.Model.Reservation;
 import Ciclo31.Ciclo31.Service.ReservationService;
 
@@ -44,5 +46,19 @@ public class ReservationController {
         return ResponseEntity.status(201).build();
     }
     
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getReservationsReportDates(@PathVariable("dateOne") String dateOne, @PathVariable("dateTwo") String dateTwo){
+        return reservationService.getReservationByDates(dateOne, dateTwo);
+    }
+
+    @GetMapping("/report-status")
+    public StatusAmount getStatusReport (){
+        return reservationService.getReservationsStatusReport();
+    }
+
+    @GetMapping("/report-clients")
+    public List<CountClient> getReservationsReportClient(){
+        return reservationService.getTopClients();
+    }
 
 }
