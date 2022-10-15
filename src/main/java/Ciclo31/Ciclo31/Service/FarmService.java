@@ -36,7 +36,7 @@ public class FarmService {
         }      
     }
 
-    public Farm update(Farm f){
+    public Farm updateFarm (Farm f){
         if(f.getId()!= null){
             Optional<Farm> newf = farmRepository.getById(f.getId());
             if(newf.isPresent()){

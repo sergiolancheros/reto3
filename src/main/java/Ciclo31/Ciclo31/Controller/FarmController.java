@@ -45,13 +45,13 @@ public class FarmController {
     }
     
     @DeleteMapping("/{id}")
-    public boolean delete(@PathVariable("id") int id){
+    public boolean deleteFarm(@PathVariable("id") int id){
         return farmService.deleteFarm(id);
     }
 
     @PutMapping("/update")
-    public Farm update (@RequestBody Farm f){
-        return farmService.update(f);
+    public Farm updateFarm (@RequestBody Farm f){
+        return farmService.updateFarm (f);
     }
 }
 

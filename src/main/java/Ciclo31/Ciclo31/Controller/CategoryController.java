@@ -45,12 +45,12 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{id}")
-    public boolean delete(@PathVariable("id") int id){
+    public boolean deleteCategory(@PathVariable("id") int id){
         return categoryService.deleteCategory(id);
     }
 
     @PutMapping("/update")
-    public Category update (@RequestBody Category c){
-        return categoryService.update(c);
+    public Category updateCategory (@RequestBody Category c){
+        return categoryService.updateCategory(c);
     }
 }
